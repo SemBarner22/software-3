@@ -1,6 +1,8 @@
 package ru.akirakozov.sd.refactoring.utils;
 
 import ru.akirakozov.sd.refactoring.domain.Product;
+import ru.akirakozov.sd.refactoring.repository.MarketRepository;
+import ru.akirakozov.sd.refactoring.repository.MarketRepositoryImpl;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -14,6 +16,8 @@ import java.util.function.Function;
 import static ru.akirakozov.sd.refactoring.utils.HTMLUtils.createHtmlBody;
 
 public class ProductUtils {
+
+    public static MarketRepository marketRepository = new MarketRepositoryImpl();
 
     public static BiFunction<ResultSet, Function<Product, String>, String> functionProduct = (rs, htmlParser) -> {
         if (rs == null) {
