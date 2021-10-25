@@ -16,7 +16,9 @@ public class HTMLUtils {
         response.getWriter().println("<html><body>");
         toWrite.forEach(s -> {
             try {
-                response.getWriter().println(s);
+                if (!s.isEmpty()) {
+                    response.getWriter().println(s);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -33,7 +35,10 @@ public class HTMLUtils {
     }
 
     public static String parseProduct(Product product) {
-        return parseProductAbstract(product, "");
+        if (product == null) {
+            return "";
+        }
+        return product.getName() + "\t" + product.getPrice() + "</br>";
     }
 
     public static String parseProductMax(Product product) {
@@ -48,7 +53,7 @@ public class HTMLUtils {
         if (product == null) {
             return header;
         }
-        return header + System.lineSeparator() + product.getName() + "\t" + product.getPrice() + "</br>";
+        return header + System.lineSeparator() + parseProduct(product);
     }
 
 }

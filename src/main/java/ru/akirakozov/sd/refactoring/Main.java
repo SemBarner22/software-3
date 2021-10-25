@@ -34,9 +34,9 @@ public class Main {
         context.setContextPath("/");
         server.setHandler(context);
 
-        context.addServlet(new ServletHolder(new AddProductServlet(new MarketRepositoryImpl())), "/add-product");
-        context.addServlet(new ServletHolder(new GetProductsServlet(new MarketRepositoryImpl())),"/get-products");
-        context.addServlet(new ServletHolder(new QueryServlet(new MarketRepositoryImpl())),"/query");
+        context.addServlet(new ServletHolder(new AddProductServlet()), "/add-product");
+        context.addServlet(new ServletHolder(new GetProductsServlet()),"/get-products");
+        context.addServlet(new ServletHolder(new QueryServlet()),"/query");
 
         server.start();
         server.join();
