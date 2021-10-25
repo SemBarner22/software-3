@@ -1,4 +1,4 @@
-package refactoring.servlet;
+package ru.akirakozov.sd.refactoring.servlet;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
